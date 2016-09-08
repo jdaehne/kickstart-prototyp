@@ -1,0 +1,23 @@
+{
+  "name": "Quadro-Prototyp-Vorlage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-imagemin": "*",
+    "gulp-plumber": "*",
+    "gulp-sass": "*",
+    "gulp-uglifyjs": "*",
+    "gulp-svgstore": "*",
+    "gulp-svgmin": "*",
+    "gulp-rename": "*"
+  }
+}
