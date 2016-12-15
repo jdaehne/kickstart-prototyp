@@ -13,7 +13,8 @@ var gulp = require('gulp'),
 // Static Browser:
 gulp.task('serve', ['styles'], function() {
     browserSync.init({
-        server: "./"
+        server: "./",
+        notify: false
     });   
 });
 
