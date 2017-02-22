@@ -23,7 +23,7 @@ gulp.task('serve', ['styles'], function() {
 gulp.task('styles', function(){
 	gulp.src('_build/scss/main.scss')
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(prefix('last 2 versions'))
+		.pipe(prefix('last 4 versions'))
 		.pipe(plumber())
 		.pipe(gulp.dest('css/'))
 		.pipe(browserSync.stream());
