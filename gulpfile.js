@@ -7,7 +7,8 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	svgstore = require('gulp-svgstore'),
 	svgmin = require('gulp-svgmin'),
-	rename = require('gulp-rename');
+	rename = require('gulp-rename'),
+	base64 = require('gulp-base64');
 
 
 // Static Browser:
@@ -24,6 +25,11 @@ gulp.task('styles', function(){
 	gulp.src('_build/scss/main.scss')
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(prefix('last 4 versions'))
+		.pipe(base64({
+            baseDir: '../',  // go 2 levels up, to use the optimiced images for smaller filesize
+            maxImageSize: 8*1024, // bytes 
+            debug: true
+        }))
 		.pipe(plumber())
 		.pipe(gulp.dest('css/'))
 		.pipe(browserSync.stream());

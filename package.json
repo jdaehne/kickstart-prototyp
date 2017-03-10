@@ -18,6 +18,7 @@
     "gulp-uglifyjs": "*",
     "gulp-svgstore": "*",
     "gulp-svgmin": "*",
-    "gulp-rename": "*"
+    "gulp-rename": "*",
+    "gulp-base64": "*"
   }
 }
