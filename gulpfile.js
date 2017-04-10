@@ -26,7 +26,7 @@ gulp.task('styles', function(){
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(prefix('last 4 versions'))
 		.pipe(base64({
-            baseDir: '../',  // go 2 levels up, to use the optimiced images for smaller filesize
+            baseDir: 'css/',  
             maxImageSize: 8*1024, // bytes 
             debug: true
         }))
