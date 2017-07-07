@@ -108,7 +108,8 @@ ul {
 	flex-wrap: wrap;
 	
 	& > * {
-		flex: 0 0 calc(33.3333% - 40px);
+		flex: 0 0 auto;
+		flex-basis: calc(33.3333% - 40px);
 		margin: 20px;
 	}
 
