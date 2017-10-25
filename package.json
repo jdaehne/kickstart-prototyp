@@ -12,13 +12,18 @@
     "browser-sync": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
+    "gulp-base64": "*",
+    "gulp-csso": "*",
+    "gulp-group-css-media-queries": "*",
     "gulp-imagemin": "*",
     "gulp-plumber": "*",
-    "gulp-sass": "*",
-    "gulp-uglifyjs": "*",
-    "gulp-svgstore": "*",
-    "gulp-svgmin": "*",
     "gulp-rename": "*",
-    "gulp-base64": "*"
+    "gulp-sass": "*",
+    "gulp-svgmin": "*",
+    "gulp-svgstore": "*",
+    "gulp-uglifyjs": "*"
+  },
+  "dependencies": {
+    "critical": "^0.9.1"
   }
 }

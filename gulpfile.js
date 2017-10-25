@@ -8,7 +8,10 @@ var gulp = require('gulp'),
 	svgstore = require('gulp-svgstore'),
 	svgmin = require('gulp-svgmin'),
 	rename = require('gulp-rename'),
-	base64 = require('gulp-base64');
+	base64 = require('gulp-base64'),
+	gcmq = require('gulp-group-css-media-queries'),
+	csso = require('gulp-csso'),
+	critical = require('critical');
 
 
 // Static Browser:
@@ -16,20 +19,35 @@ gulp.task('serve', ['styles'], function() {
     browserSync.init({
         server: "./",
         notify: false
-    });   
+    });
+});
+
+
+// critical css
+gulp.task('critical', function (cb) {
+    critical.generate({
+        base: './',
+        src: 'index.html',
+        dest: 'css/index-critical.min.css',
+        minify: true,
+        width: 1300,
+        height: 900
+    });
 });
 
 
 // Styles Task
 gulp.task('styles', function(){
-	gulp.src('_build/scss/main.scss')
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+	gulp.src('_build/scss/**/*.scss')
+		.pipe(sass().on('error', sass.logError))
 		.pipe(prefix('last 4 versions'))
 		.pipe(base64({
-            baseDir: 'css/',  
-            maxImageSize: 8*1024, // bytes 
+            baseDir: 'css/',
+            maxImageSize: 8*1024, // bytes
             debug: true
         }))
+		.pipe(gcmq())
+        .pipe(csso())
 		.pipe(plumber())
 		.pipe(gulp.dest('css/'))
 		.pipe(browserSync.stream());
@@ -81,11 +99,12 @@ gulp.task('svg', function(){
 
 // Watch Task
 gulp.task('watch', function() {
-	gulp.watch('_build/scss/*.scss', ['styles']).on('change', browserSync.reload);
+	gulp.watch('_build/scss/**/*.scss', ['styles']).on('change', browserSync.reload);
 	gulp.watch('_build/js/*.js', ['scripts']).on('change', browserSync.reload);
 	gulp.watch('_build/img/*', ['image']);
 	gulp.watch('_build/uploads/*', ['image']);
 	gulp.watch('_build/svg/*.svg', ['svg']);
+	gulp.watch('./*.html', ['critical']);
 	gulp.watch("./*.html").on('change', browserSync.reload);
 });
 
