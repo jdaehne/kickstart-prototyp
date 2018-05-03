@@ -1,6 +1,6 @@
 {
   "name": "Quadro-Prototyp-Vorlage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.html",
   "scripts": {
@@ -12,7 +12,6 @@
     "browser-sync": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
-    "gulp-base64": "*",
     "gulp-csso": "*",
     "gulp-group-css-media-queries": "*",
     "gulp-imagemin": "*",
@@ -23,7 +22,5 @@
     "gulp-svgstore": "*",
     "gulp-uglifyjs": "*"
   },
-  "dependencies": {
-    "critical": "^0.9.1"
-  }
+  "dependencies": {}
 }
