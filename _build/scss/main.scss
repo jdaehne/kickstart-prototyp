@@ -26,7 +26,8 @@
 /*
 /* --------------------------------------------------------------------------- */
 
-@import 'vendor/normalize';
+@import
+'vendor/normalize';
 
 
 
@@ -38,13 +39,19 @@
 /* --------------------------------------------------------------------------- */
 
 // template
-@import 'template/fonts';
-@import 'template/globals';
-@import 'template/padding';
+@import
+'template/fonts',
+'template/globals',
+'template/padding';
+
 
 // modules
-//@import 'modules/example';
+//@import
+//'modules/example';
+
 
 // components
-@import 'components/headlines';
-@import 'components/buttons';
+@import
+'components/headlines',
+'components/buttons',
+'components/content';
