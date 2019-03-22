@@ -17,7 +17,6 @@ var gulp = require('gulp'),
 // styles
 function styles(done) {
     gulp.src('_build/scss/**/*.scss')
-        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(prefix('last 4 versions'))
         .pipe(plumber())
