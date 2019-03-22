@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
     concat = require('gulp-concat'),
 	gcmq = require('gulp-group-css-media-queries'),
-	csso = require('gulp-csso')
+	csso = require('gulp-csso'),
     sourcemaps = require('gulp-sourcemaps');
 
 
@@ -20,10 +20,10 @@ function styles(done) {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(prefix('last 4 versions'))
+        .pipe(plumber())
         .pipe(gcmq())
         .pipe(csso())
         .pipe(plumber())
-        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('css/'))
         .pipe(browserSync.stream());
     done();
