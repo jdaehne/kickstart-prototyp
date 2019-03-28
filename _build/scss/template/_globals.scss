@@ -12,7 +12,15 @@
 :root {}
 
 // body
-body {}
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
 
 
 // text & links
@@ -28,7 +36,7 @@ p {
 
 a {
 	text-decoration: none;
-	transition: all .4s;
+	transition: all .3s ease;
 	color: inherit;
 }
 
