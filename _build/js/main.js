@@ -51,5 +51,20 @@ $(document).ready(function() {
 
 
 
+    // * * * * * * * * * * * * * * * * * * * * * * * * *
+	// * cookie-message
+	// *
+	// *
+	var cookieMessage = Cookies.get('cookie-message');
+
+	$(".js-cookie-message-btn").click(function(){
+		$(this).parents(".js-cookie-message").fadeOut();
+		Cookies.set('cookie-message', '1', { expires: 365 });
+	});
+
+	if (!cookieMessage) {
+		$(".js-cookie-message").show();
+	}
+
 
 });
