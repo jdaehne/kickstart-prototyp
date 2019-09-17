@@ -18,10 +18,24 @@ $(document).ready(function() {
     // * makes other links inside clickable with their target
     // *
     $(".js-click-item-parent").delegate('a', 'click', function(e){
-        window.location = $(this).attr("href");
+		var target = $(this).attr("target"),
+			url = $(this).attr("href");
+
+		if (target == "_blank") {
+			window.open(url);
+		}else {
+			window.location = url;
+		}
         return false;
     }).click(function(){
-        window.location = $(this).find("a.js-click-item-link").attr("href");
+		var target = $(this).find("a.js-click-item-link").attr("target"),
+			url = $(this).find("a.js-click-item-link").attr("href");
+
+		if (target == "_blank") {
+			window.open(url);
+		}else {
+			window.location = url;
+		}
         return false;
     });​
 
