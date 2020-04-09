@@ -1,10 +1,25 @@
 $(document).ready(function() {
 
 
-	// * * * * * * * * * * * * * * * * * * * * * * * * *
-	// * Name
-	// *
-	// *
+    // * * * * * * * * * * * * * * * * * * * * * * * * *
+    // * teleport links
+    // *
+    // * @set outer parent element class: js-href-teleport-wrapper
+    // * @set link (<a> tag) element class: js-href-teleport-link
+    // * @set element to add the link to class: js-href-teleport
+    // *
+    // * This adds a link tag (<a>) to other elements within a wrapper
+    // * links comes from a link. Example: add a link to h2, image etc. inside a teaser
+    // *
+    $(".js-href-teleport").each(function(){
+        var $link = $(this).parents(".js-href-teleport-wrapper").find(".js-href-teleport-link"),
+            href = $link.attr("href"),
+            target = $link.attr("target") ? $link.attr("target") : '_self';
+
+        if (href) {
+            $(this).wrapInner('<a href="' + href + '" target="' + target + '"></a>');
+        }
+    });
 
 
 
