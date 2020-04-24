@@ -96,4 +96,20 @@ $(document).ready(function() {
 	}
 
 
+
+
+
+    // * * * * * * * * * * * * * * * * * * * * * * * * *
+    // * add target blank to external links
+    // *
+    // *
+    $('a').each(function() {
+        if(location.hostname === this.hostname || !this.hostname.length) {
+            // ... do nothing?
+        }else {
+            $(this).attr('target','_blank');
+        }
+    });
+
+
 });
