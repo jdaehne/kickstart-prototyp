@@ -96,7 +96,30 @@ $(document).ready(function() {
 	}
 
 
+    // * * * * * * * * * * * * * * * * * * * * * * * * *
+    // * animateIn
+    // *
+    // *
+    var offset = 60; // Distance from Browserbottom where the animation should start
 
+    function fadeInElements(){
+        var viewPort = $(window).scrollTop() + $(window).height();
+
+        $(".animateIn:visible").each(function(){
+            var elementTop = $(this).offset().top;
+
+            if ((elementTop + offset) <= viewPort) {
+                var delay = $(this).data("animation-delay");
+                $(this).css("transition-delay", delay + "s").addClass("animateIn--active");
+            }
+        });
+    }
+
+    $(window).scroll(function() {
+        fadeInElements();
+    });
+
+    fadeInElements();
 
 
     // * * * * * * * * * * * * * * * * * * * * * * * * *
