@@ -126,7 +126,7 @@ $(document).ready(function() {
     // * add target blank to external links
     // *
     // *
-    $('a').each(function() {
+    $('a:not([data-targetblank=ignore])').each(function() {
         if(location.hostname === this.hostname || !this.hostname.length) {
             // ... do nothing?
         }else {
