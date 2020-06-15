@@ -7,6 +7,12 @@
 
     a {
         text-decoration: underline;
+
+        // long Links break
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
     }
 
     ul {
